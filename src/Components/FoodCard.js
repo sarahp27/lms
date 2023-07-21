@@ -3,7 +3,7 @@ import React, { useState } from "react";
 export const FoodCard = () => {
   const [foods, setFoods] = useState([]);
 
-  fetch("http://localhost:9090/food/list")
+  fetch("http://localhost:3001/food")
     .then((data) => data.json())
     .then((data) => {setFoods(data)
     console.log(data)}
@@ -13,6 +13,7 @@ export const FoodCard = () => {
 
   return (
     <>
+    <div style={{display:'flex', flexDirection:"row", flexWrap:"wrap"}}>
     {foods.map((food)=>(
       <div
       class='card'
@@ -23,9 +24,9 @@ export const FoodCard = () => {
         flexDirection: "column",
       }}
     >
-      <img class='card-img-top' src= {food.food_image} alt='food-img' />
+      <img class='card-img-top' src= {food.image} alt='food-img' width="100px" height="300px"/>
       <div class='card-body'>
-        <h2> {food.food_name}</h2>
+        <h2> {food.name}</h2>
         <p class='card-text'>Rs. {food.price} </p>
       </div>
       <button
@@ -41,7 +42,7 @@ export const FoodCard = () => {
     </div>
 
 ))}
-      
+      </div>
     </>
   );
 };

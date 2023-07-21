@@ -6,7 +6,7 @@ export const Navbar = () => {
       <h1
         style={{
           color: "white",
-          backgroundColor: "purple",
+          backgroundColor: "red",
           padding: "20px",
           display: "flex",
           flexDirection: "row",
